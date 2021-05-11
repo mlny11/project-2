@@ -1,0 +1,36 @@
+.button.is-info {
+    margin: 5px;   
+}
+
+.hero-body{
+    background-image: white;
+    font-family: 'Anton', sans-serif;
+}
+
+#right{
+    background-color: white;
+}
+
+#left{
+    background-color: white;
+}
+
+.button.is-info{
+    background-color: #4682b4;
+}
+
+.footer{
+    background-image:white;
+}
+
+.red {
+    color: red;
+}
+
+p.total {
+    text-align: center;
+}
+
+p.title {
+    text-align: center;
+}

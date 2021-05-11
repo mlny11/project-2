@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>DINERO</title>
+
+    <!--Core CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+
+<!--Nav Bar-->
+<nav class="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
+        
+        <div class="container">
+            <div class="navbar-brand">
+                    <a class="button is-medium"><i class="fas fa-home" id= "home"></i></a>
+                <a class="navbar-item is-hidden-desktop is-hidden-tablet">
+                    <div id="menu-icon-wrapper" class="menu-icon-wrapper" style="visibility: visible;">
+                        <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
+                    </div>
+                </a>
+    
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+    
+            <div id="navbar-menu" class="navbar-menu is-static" >
+
+                <div class="navbar-start">
+                    <a class="navbar-item is-hidden-mobile">
+                    </a>
+                </div>
+                    <a href="#" class="navbar-item is-secondary modal-trigger" data-modal="auth-modal">
+                        Log in
+                    </a>
+                    <a class="navbar-item">
+                        <span class="button signup-button rounded secondary-btn raised">
+                            Sign up
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+<!--Nav Bar-->
+
+<br>
+
+<body>
+
+<div id="body">  
+    <!--Header-->
+    <header>
+        <img src="/images/dinero.jpg" alt='headerImg' width='100%'>
+    </header>
+    <!--Header-->
+<br>
+   
+    <div class="tile is-parent">
+        <div class="tile is-parent is-3">
+            <article id="right" class="tile is-child notification">
+                <div class="content">
+                    <p class="title">Current Balance</p>
+                    <p class="subtitle" id="currentBalance"></p>
+                    <div class="content">
+                        <div class="control">
+                            <button class="button is-info is-large is-fullwidth" id="newTransaction">New Transaction</button>
+                        </div>
+                        <div class="control">
+                            <button class="button is-info is-large is-fullwidth" id="transactionHistory"> Transaction
+                                History</button>
+                        </div>
+                        <div class="control">
+                            <button class="button is-info is-large is-fullwidth" id="income">Income</button>
+                        </div>
+                        <div class="control">
+                            <button class="button is-info is-large is-fullwidth" id="expenses">Expenses</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div class="tile is-parent is-9">
+            <article id="left" class="tile is-child notification">
+                <div class="content" id="mainContent">
+                    <div id="transaction">
+                        <h2 class="title">New Transaction</h2>
+
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label">Amount</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field has-addons">
+                                    <p class="control">
+                                        <span class="select">
+                                            <select>
+                                                <option>$</option>
+
+                                            </select>
+                                        </span>
+                                    </p>
+                                    <p class="control is-expanded">
+                                        <input class="input" type="text" placeholder="Transacton Amount" id="amount">
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label">Withdrawal or Deposit</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field is-narrow">
+                                    <div class="control">
+                                        <div class="select is-fullwidth">
+                                            <select id="creditDebit">
+                                                <option>Withdrawal</option>
+                                                <option>Deposit</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label">Category</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field is-narrow">
+                                    <div class="control">
+                                        <div class="select is-fullwidth">
+                                            <select id="category">
+                                                <option>Deposit</option>
+                                                <option>Payment</option>
+                                                <option>Entertainment</option>
+                                                <option>Dining</option>
+                                                <option>Retail</option>
+                                                <option>Travel/Transporation</option>
+                                                <option>Gas</option>
+                                                <option>Work Expense</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label">Notes</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                        <textarea class="textarea" placeholder="Enter notes here" id="notes"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field is-horizontal">
+                            <div class="field-label">
+                                <!-- Left empty for spacing -->
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                        <button class="button is-info" id="submit">
+                                            Submit Transaction
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="demo" id="table">
+
+                        <h1 id="responsive">Transaction History</h1>
+                        <br>
+                        <table class="table is-responsive" id="transTable">
+                            <thead>
+                                <tr>
+                                    <th>Amount</th>
+                                    <th>Debit/Credit</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="demo" id="creditTable">
+
+                            <h1 id="responsive">Account Credits</h1>
+                            <br>
+                            <table class="table is-responsive" id="transTable">
+                                <thead>
+                                    <tr>
+                                        <th>Amount</th>
+                                        <th>Category</th>
+                                        <th>Date</th>
+                                        <th>Notes</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="creditTableBody">
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="demo" id="debitTable">
+
+                                <h1 id="responsive">Expenses</h1>
+                                <br>
+                                <table class="table is-responsive" id="transTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Amount</th>
+                                            <th>Category</th>
+                                            <th>Date</th>
+                                            <th>Notes</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="debitTableBody">
+                                    </tbody>
+                                </table>
+                            </div>
+
+                    <div id="welcomeMessage">
+                        <h1>Make a selection to get started!</h1>
+                    </div>
+            </article>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="content">
+            <p>
+                <strong>Dinero</strong> is a Kinping 360 Joint.
+            </p>
+        </div>
+    </footer>
+    <script src="js/app.js"></script>
+</div>
+</body>
+
+</html>
